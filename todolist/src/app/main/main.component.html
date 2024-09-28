@@ -1,0 +1,12 @@
+<div class="p-4 bg-blue-600 text-center">
+    <h1 class="m-4 text-5xl font-bold text-white">Todo List</h1>
+    <div class="">
+        <input [(ngModel)]="todoInput" (keyup.enter)="addTodo()" class="w-1/2 rounded-lg" placeholder="할일을 입력하세요.">
+        <button (click)="addTodo()" class="m-4 p-2 rounded-lg bg-white font-bold">추가</button>
+    </div>    
+</div>
+
+<app-list [list]="todoList" (removeEvent)="updateList($event)"></app-list>
+    <!-- <app-list *ngIf="todoList.length >= 0" [list]="todoList"></app-list> -->
+
+

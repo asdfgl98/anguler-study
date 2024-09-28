@@ -1,4 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { PageToggleService } from '../../../share/page-toggle.service';
 
 @Component({
   selector: 'app-stopwatch',
@@ -14,12 +16,24 @@ export class StopwatchComponent {
 
   timeInterval: any
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private pageToggleService: PageToggleService
+  ) {
 
   }
 
   timeStart() {
     this.timeInterval = setInterval(()=>{
+
+      if(this.ms >= 99){
+        this.ms= 0;
+        this.sec++;
+      }
+      if(this.sec >= 60){
+        this.sec = 0;
+        this.min++
+      }
       this.ms++
     },10)
   }
@@ -33,6 +47,10 @@ export class StopwatchComponent {
     this.min = 0
     this.sec = 0
     this.ms = 0
+  }
+
+  goClock() {
+    this.pageToggleService.goPage('/clock')
   }
 
   ngOnChanges(changes: SimpleChanges) {

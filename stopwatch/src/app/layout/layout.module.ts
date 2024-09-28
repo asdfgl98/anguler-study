@@ -5,7 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SectionModule } from './section/section.module';
 import { ClockComponent } from './clock/clock.component';
-import { StopwatchComponent } from './section/stopwatch/stopwatch.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionComponent } from './section/section.component';
 
@@ -30,11 +29,13 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SectionModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   exports: [
     LayoutComponent,
     RouterModule
+  ],
+  providers: [
   ]
 })
 export class LayoutModule { }

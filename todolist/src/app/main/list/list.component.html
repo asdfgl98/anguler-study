@@ -1,0 +1,13 @@
+<!-- <div class="" *ngFor="let todo of list">
+</div> -->
+
+<div class="w-full flex flex-col items-center">
+    <div *ngFor="let todo of list" class="m-4 bg-blue-200 w-1/4 border rounded-lg flex justify-between">
+        <div class="m-4 p-2 text-2xl">
+            {{todo}}
+        </div>
+        <div class="m-4 p-2 flex items-center">
+            <button (click)="removeTodo(todo)">X</button>
+        </div>  
+    </div>   
+</div>
